@@ -2,9 +2,10 @@
 IoT Data generation + consumption for MongoDB (Node.JS)
 
 Maintainer: Julien Contarin
-**Date**: January 2020
-**MongoDB Version**: 4.2
-**MongoDB Tools being used**:
+
+**Date**: January 2020 <br/>
+**MongoDB Version**: 4.2 <br/>
+**MongoDB Tools being used**: <br/>
 - *MongoDB Cluster* hosted either on Atlas or elsewhere
 - *1 - IoT Data simulation* using Node.JS : app run locally or Atlas Trigger
 - *2 - IoT Data enrichment* using MongoDB shell

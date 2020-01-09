@@ -16,7 +16,7 @@ async function main() {
 
   const db = client.db('iot');
 
-  for (let i=0; i<1000; i++) {
+  for (let i=0; i<200; i++) {
         console.log(i);
         await updateDocument(db);
   }
@@ -29,7 +29,7 @@ main().catch(console.dir);
 // Upsert IoT documents
 async function updateDocument(db) {
   const collection = db.collection('bucket');
-  const deviceId = randomInt(23936000, 23936100);
+  const deviceId = 23936000+i;
   const temperature = random(30,80);
   const date = new Date();
 
@@ -72,7 +72,7 @@ async function updateDocument(db) {
     {upsert: true, returnNewDocument: true});
 
   console.log("upserted 1");
-  sleep(100);
+  //sleep(100);
 
 }
 

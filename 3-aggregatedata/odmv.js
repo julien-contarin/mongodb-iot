@@ -2,7 +2,7 @@
 // Calculate average, min, max, first and last values for all buckets and persist it as a materialized view
 // This is dependent from bucket rule (hour, day, or else): in this example we use hour-bucketting
 
-db.bucketEnriched.createIndex({ "deviceId" : 1, "sensor" : 1, "date.year" : 1, "date.month" : 1, "date.day" : 1, "date.hour" : 1 }, {unique:true})
+db.bucketAggH.createIndex({ "deviceId" : 1, "sensor" : 1, "date.year" : 1, "date.month" : 1, "date.day" : 1, "date.hour" : 1 }, {unique:true})
 
 db.bucket.aggregate(
   [
@@ -30,7 +30,7 @@ db.bucket.aggregate(
       }
     }, {
       '$merge': {
-        'into': 'bucketEnriched',
+        'into': 'bucketAggH',
         'on': [
           'deviceId', 'sensor', 'date.year', 'date.month', 'date.day', 'date.hour'
         ],
@@ -43,7 +43,7 @@ db.bucket.aggregate(
 
 // In this example we use day-bucketting
 
-db.bucketEnrichedD.createIndex({ "deviceId" : 1, "sensor" : 1, "date.year" : 1, "date.month" : 1, "date.day" : 1 }, {unique:true})
+db.bucketAggD.createIndex({ "deviceId" : 1, "sensor" : 1, "date.year" : 1, "date.month" : 1, "date.day" : 1 }, {unique:true})
 
 db.bucketD.aggregate(
   [
@@ -71,7 +71,7 @@ db.bucketD.aggregate(
       }
     }, {
       '$merge': {
-        'into': 'bucketEnrichedD',
+        'into': 'bucketAggD',
         'on': [
           'deviceId', 'sensor', 'date.year', 'date.month', 'date.day'
         ],
@@ -81,3 +81,10 @@ db.bucketD.aggregate(
     }
   ]
 );
+
+
+// Rollback odmv (delete documents)
+// db.bucketAggH.deleteMany({});
+
+// Rollback odmv (drop collection)
+// db.bucketAggH.drop();

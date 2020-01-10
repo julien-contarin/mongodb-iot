@@ -135,7 +135,7 @@ db.bucket.findOne()
 }
 ```
 
-## 2 - Data enrichment
+## 2 - Data enrichment (2 - calculAggregates)
 
 The folder 2-calculateAggregates contains examples of how to use MongoDB 4.2 enriched update mechanisms to append aggregated values (avg, min, max, first, last) for each IoT device inside the bucketted document.
 
@@ -143,7 +143,7 @@ The folder 2-calculateAggregates contains examples of how to use MongoDB 4.2 enr
 
 This is to be executed from Mongo shell. To optimize this, it is highly recommended to build the indexes (see introduction to 1 - Data generation)
 
-## 3 - Data consumption
+## 3 - Data consumption (3 - aggregateData)
 
 The folder 3-aggregateData contains examples of how to query data when it is bucketted using the aggregation framework. It also demonstrates how to build materialized views using 4.2 capabilities
 

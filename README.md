@@ -40,7 +40,7 @@ db.collection.createIndex({"deviceId" : 1,"sensor" : 1,"date.year" : 1,"date.mon
 db.collection.createIndex({"date.year" : 1,"date.month" : 1,"date.day" : 1});
 ```
 
-### 1 - localDataGen
+### 1a - localDataGen
 
 This folder contains a single Node.JS application which will generate 200 temperature documents (one document per IoT sensor) with a bucketting per hour.
 The constraint with this app is that you will have to run it at a given frequency (every x minutes) to simulate continuous IoT data generation.
@@ -77,7 +77,7 @@ const collection = db.collection("bucket");
 node app.js
 ```
 
-### 1-triggerDataGen
+### 1b - triggerDataGen
 
 This contains 3 functions to be run as an **Atlas or Stitch scheduled trigger**. Each function will insert data from 200 IoT devices every time it is run. You must configure the frequency when setting up your Atlas scheduled trigger.
 1. nobucket.js: this will insert simulated device data without bucketting

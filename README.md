@@ -10,7 +10,7 @@ Maintainer: Julien Contarin
 - *1 - IoT Data simulation* using Node.JS : app run locally or Atlas Trigger
 - *2 - IoT Data enrichment* using MongoDB shell
 - *3 - IoT Data consumption* using the aggregation framework from supported tools (shell, Compass)
-- *IoT Data visualisation* using MongoDB Charts
+- *IoT Data visualisation* using MongoDB Charts (not covered in this version)
 
 ## 1 - Data simulation
 
@@ -154,3 +154,9 @@ This shows how to execute aggregations and get results on the getFullYear
 ### odmv.js
 
 This shows how to persist said aggregations to an on-demand materialized view. Don't forget that this view must be executed at a given frequency to be kept up to date.
+
+## Possible improvements
+
+1. Use 4.2 update with aggregation to merge parts 1 and 2 (i.e. calculate aggregates on the fly when you insert bucketed data)
+2. Use a Stitch trigger to auto-calculate Materialized Views
+3. Document how to build a Charts data visualisation for this data

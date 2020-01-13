@@ -4,7 +4,7 @@ const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 
 // Connection string
-const url = "insert_cluster_connection_string";
+const url = "insert_connection_string";
 
 // Create Client
 async function main() {
@@ -18,7 +18,7 @@ async function main() {
 
   for (let i=0; i<200; i++) {
         console.log(i);
-        await updateDocument(db);
+        await updateDocument(db,i);
   }
   await client.close();
 };
@@ -27,8 +27,8 @@ async function main() {
 main().catch(console.dir);
 
 // Upsert IoT documents
-async function updateDocument(db) {
-  const collection = db.collection('bucket');
+async function updateDocument(db,i) {
+  const collection = db.collection('bucketD');
   const deviceId = 23936000+i;
   const temperature = random(30,80);
   const date = new Date();

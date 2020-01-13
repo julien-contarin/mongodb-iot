@@ -47,7 +47,7 @@ db.bucket.aggregate(
 timelinemin = ISODate("2020-01-06T09:00")
 timelinemax = ISODate("2020-01-06T11:00")
 
-db.collection.aggregate([
+db.bucket.aggregate([
   {
     '$match': {
       'deviceId': 23936000,
